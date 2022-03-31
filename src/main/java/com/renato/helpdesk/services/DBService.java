@@ -1,6 +1,6 @@
 package com.renato.helpdesk.services;
 
-import com.renato.helpdesk.HelpdeskApplication;
+
 import com.renato.helpdesk.domain.Chamado;
 import com.renato.helpdesk.domain.Cliente;
 import com.renato.helpdesk.domain.Tecnico;
@@ -11,7 +11,6 @@ import com.renato.helpdesk.repositories.ChamadoRepository;
 import com.renato.helpdesk.repositories.ClienteRepository;
 import com.renato.helpdesk.repositories.TecnicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -27,10 +26,13 @@ public class DBService {
     @Autowired
     private ChamadoRepository chamadoRepository;
 
+    public DBService() {
+    }
+
 
     public void instanciaDB(){
 
-        Tecnico tec1 = new Tecnico(null, "Valdir cezar","12345678999","valdir@mail.com","123");
+        Tecnico tec1 = new Tecnico(null, "Windows cezar","12345678999","windows@mail.com","123");
         tec1.addPerfil(Perfil.ADMIN);
 
         Cliente cli1 = new Cliente(null, "Linux Debian","78945612333","linux@mail.com","123");
@@ -42,4 +44,6 @@ public class DBService {
         clienteRepository.saveAll(Arrays.asList(cli1));
         chamadoRepository.saveAll(Arrays.asList(c1));
     }
+
+
 }
