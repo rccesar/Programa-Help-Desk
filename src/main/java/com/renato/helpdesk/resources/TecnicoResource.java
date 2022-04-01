@@ -1,5 +1,6 @@
 package com.renato.helpdesk.resources;
 
+import com.renato.helpdesk.domain.DTO.TecnicoDTO;
 import com.renato.helpdesk.domain.Tecnico;
 import com.renato.helpdesk.services.TecnicoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +21,10 @@ public class TecnicoResource {
 
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Tecnico> findById(@PathVariable Integer id) {
+    public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id) {
 
         Tecnico obj = service.findById(id);
-        return ResponseEntity.ok().body(obj);
+        return ResponseEntity.ok().body(new TecnicoDTO(obj));
 
 
     }
